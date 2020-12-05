@@ -2,7 +2,6 @@
   <artifact type="exploded-war" name="VietTravelBackEnd">
     <output-path>$PROJECT_DIR$/out/artifacts/VietTravelBackEnd</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="VietTravelBackEnd/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="VietTravelBackEnd" />
@@ -70,6 +69,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.woodstox:woodstox-core:6.2.1" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="VietTravelBackEnd/web/Web" />
     </root>
   </artifact>
 </component>
