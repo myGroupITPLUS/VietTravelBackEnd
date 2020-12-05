@@ -33,7 +33,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
                 <configuration>
-                    <outputDirectory>/target</outputDirectory>
                     <warName>viet-travel</warName>
                 </configuration>
             </plugin>
