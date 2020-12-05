@@ -7,6 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>VietTravelBackEnd</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>viet-travel</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,10 +36,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.2</version>
-                <configuration>
-                    <warName>viet-travel</warName>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
             </plugin>
 
             <plugin>
