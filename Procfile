@@ -1,1 +1,1 @@
-web: java -jar target/dependency/webapp-runner.jar --port $PORT --expand-war target/*.war
+web: java -jar target/dependency/webapp-runner.jar --port $PORT --expand-war target/viet-travel.war
