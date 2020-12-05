@@ -1,1 +1,1 @@
-web: java -jar target/VietTravelBackEnd-1.0.0.jar
+web: java -jar target/dependency/webapp-runner.jar --port $PORT target/
