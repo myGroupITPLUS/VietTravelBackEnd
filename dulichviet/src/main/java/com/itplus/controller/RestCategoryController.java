@@ -15,10 +15,11 @@ import com.itplus.service.CategoryService;
 import com.itplus.model.CategoryDTO;
 
 @RestController
+@RequestMapping(value = "/api/category",produces = "application/json")
 public class RestCategoryController {
 	@Autowired
 	CategoryService categoryService;
-	@RequestMapping(value = "/getAllCategory", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String listCategory(HttpServletRequest request) {
 		List<CategoryDTO> cate = categoryService.getAllCategory();
 		Gson gson = new Gson();
