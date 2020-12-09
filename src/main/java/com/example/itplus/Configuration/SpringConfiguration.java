@@ -1,4 +1,4 @@
-package com.example.Configuration;
+package com.example.itplus.Configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

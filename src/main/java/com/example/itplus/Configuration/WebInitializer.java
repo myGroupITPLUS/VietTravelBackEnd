@@ -1,4 +1,4 @@
-package com.example.Configuration;
+package com.example.itplus.Configuration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
