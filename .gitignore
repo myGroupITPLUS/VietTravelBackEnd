@@ -1,4 +1,7 @@
 
-/out/
-/target/
-/src/main/resources/db.properties
+.classpath
+.project
+/target
+.settings
+.idea/
+/out
