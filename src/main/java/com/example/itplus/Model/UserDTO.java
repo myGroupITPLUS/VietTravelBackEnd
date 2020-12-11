@@ -1,16 +1,17 @@
-package com.example.itplus.Entity;
+package com.example.itplus.Model;
 
-import com.example.itplus.Model.UserDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class User {
+public class UserDTO {
     private int id;
     private String username;
+    @JsonIgnore
     private String password;
     private String phone;
     private String address;
     private String email;
 
-    public User(int id, String username, String password, String phone, String address, String email) {
+    public UserDTO(int id, String username, String password, String phone, String address, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -19,18 +20,8 @@ public class User {
         this.email = email;
     }
 
-    public User() {
-    }
+    public UserDTO(){
 
-    public UserDTO toUserDTO(){
-        UserDTO userDTO = new UserDTO();
-        userDTO.setUsername(this.getUsername());
-        userDTO.setId(this.getId());
-        userDTO.setPassword(this.getPassword());
-        userDTO.setAddress(this.getAddress());
-        userDTO.setEmail(this.getEmail());
-        userDTO.setPhone(this.getPhone());
-        return userDTO;
     }
 
     public int getId() {

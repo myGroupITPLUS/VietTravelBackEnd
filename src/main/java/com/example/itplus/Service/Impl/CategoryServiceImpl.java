@@ -23,12 +23,22 @@ public class CategoryServiceImpl implements CategoryService {
 		for (Category category : listCategory) {
 			CategoryDTO categoryDTO = new CategoryDTO();
 			categoryDTO.setId(category.getId());
-			categoryDTO.setCategoryName(category.getCategoryname());
+			categoryDTO.setCategoryName(category.getCategoryName());
 			categoryDTO.setDescriptions(category.getDescriptions());
 			categoryDTO.setImages(category.getImages());
 			listCategoryDTO.add(categoryDTO);
 		}		
 		return listCategoryDTO;
+	}
+
+	@Override
+	public CategoryDTO getCategoryDetail(int id) {
+		Category category = categoryDao.getCategoryDetail(id);
+		if (category != null){
+			return new CategoryDTO(category);
+		}else{
+			return null;
+		}
 	}
 
 }
