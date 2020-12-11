@@ -24,7 +24,7 @@ public class PromotionServiceImpl implements PromotionService{
 			PromotionDTO promotionDTO = new PromotionDTO();
 			promotionDTO.setId(promotion.getId());
 			promotionDTO.setSale(promotion.getSale());
-			promotionDTO.setDescription(promotion.getDescription());
+			promotionDTO.setDescriptions(promotion.getDescription());
 			promotionDTO.setImages(promotion.getImages());
 			listPromotionDTO.add(promotionDTO);
 		}
