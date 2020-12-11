@@ -55,7 +55,7 @@
 			        <c:forEach var="category" items="${list}">
 			             <tr>
 		                    <td>${category.id}</td>
-		                    <td>${category.categoryname}</td>
+		                    <td>${category.categoryName}</td>
 		                    <td>${category.descriptions}</td>
 		                    <td>${category.images}</td>
 		                    <td class="text-right">
