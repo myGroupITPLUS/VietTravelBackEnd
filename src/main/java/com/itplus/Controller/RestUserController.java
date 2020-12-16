@@ -54,5 +54,11 @@ public class RestUserController {
 		return objectMapper.writeValueAsString(map);
 	}
 
+	@PostMapping(value = "/register/")
+	@ResponseStatus(HttpStatus.OK)
+	public String register(@RequestBody User user) throws JsonProcessingException {
+		return objectMapper.writeValueAsString(userService.register(user));
+	}
+
 
 }

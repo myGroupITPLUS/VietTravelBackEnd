@@ -1,6 +1,7 @@
 package com.itplus.Service.Impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,16 @@ public class UserServiceImpl implements UserService{
 		}else{
 			return null;
 		}
+	}
+
+	@Override
+	public HashMap<String, Object> register(User user) {
+		HashMap<String, Object> result = userDao.register(user);
+		if ((boolean) result.get("success") == true){
+			User newUser = (User) result.get("user");
+			result.replace("user", newUser.toUserDTO());
+		}
+		return result;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
+import com.itplus.Util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -87,18 +88,7 @@ public class UserDaoImpl implements UserDao{
 			check = jdbcTemplate.queryForObject(sql, new String[]{user.getEmail()}, new RowMapper<User>() {
 				@Override
 				public User mapRow(ResultSet resultSet, int i) {
-					User user = new User();
-					try {
-						user.setId(resultSet.getInt("id"));
-						user.setAddress(resultSet.getString("address"));
-						user.setUsername(resultSet.getString("username"));
-						user.setEmail(resultSet.getString("email"));
-						user.setPassword(resultSet.getString("password"));
-						user.setPhone(resultSet.getString("phone"));
-						return user;
-					} catch (SQLException throwable) {
-						return null;
-					}
+					return new User();
 				}
 			});
 		} catch (EmptyResultDataAccessException exception){
@@ -107,12 +97,20 @@ public class UserDaoImpl implements UserDao{
 
 		if (check != null) {
 			result.put("success", false);
-			result.put("massage", "Email is exists");
+			result.put("message", "Email is exists");
 		} else {
 			sql = "INSERT INTO " + TABLE_NAME + " (username, email, password) VALUE (?, ?, ?)";
+			int updateResult = jdbcTemplate.update(sql, user.getUsername(), user.getEmail(), MD5Util.toMD5(user.getPassword()));
+			if (updateResult > 0){
+				User newUser = this.getUserByEmail(user.getEmail());
+				result.put("success", true);
+				result.put("user", newUser);
+			} else{
+				result.put("success", false);
+				result.put("message", "Please contact support team to get help");
+			}
 		}
-
-		return null;
+		return result;
 	}
 
 	@Override
