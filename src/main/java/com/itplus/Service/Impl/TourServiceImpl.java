@@ -31,6 +31,16 @@ public class TourServiceImpl implements TourService{
 	}
 
 	@Override
+	public List<TourDTO> search(String q) {
+		List<TourDTO> dtoList = new ArrayList<>();
+		List<Tour> listTour = tourDao.search(q);
+		for (Tour tour : listTour) {
+			dtoList.add(tour.toTourDTO());
+		}
+		return dtoList;
+	}
+
+	@Override
 	public List<TourDTO> getTourByCategory(int id) {
 		List<TourDTO> dtoList = new ArrayList<>();
 		List<Tour> listTour = tourDao.getTourByCategory(id);

@@ -6,6 +6,7 @@ import com.itplus.Entity.Tour;
 
 public interface TourDao {
 	List<Tour> getAllTour();
+	List<Tour> search(String q);
 	void addTour(Tour tour);
 	void updateTour(Tour tour);
 	Tour getTourById(int id);

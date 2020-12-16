@@ -18,6 +18,7 @@ import com.itplus.Entity.Tour;
 @Repository
 public class TourDaoImpl implements TourDao{
 	private final String TABLE_NAME = "tour";
+	private final int PRICE_DIFFERENCE = 100000;
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	@Override
@@ -32,6 +33,31 @@ public class TourDaoImpl implements TourDao{
 			});
 		return listTour;
 	}
+
+	@Override
+	public List<Tour> search(String q) {
+		String queryName = "Select * from " + TABLE_NAME + " Where name LIKE N'%%%s%%'";
+		String queryPrice = "Select * from " + TABLE_NAME + " Where price >= %f and price <= %f";
+		String query;
+		try {
+			double price = Double.parseDouble(q);
+			query = String.format(queryPrice, price - PRICE_DIFFERENCE, price + PRICE_DIFFERENCE);
+		}catch (NumberFormatException e){
+			query = String.format(queryName, q);
+		}
+
+		try {
+			return jdbcTemplate.query(query, new RowMapper<Tour>() {
+				@Override
+				public Tour mapRow(ResultSet resultSet, int i){
+					return mapTour(resultSet);
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			return new ArrayList<Tour>();
+		}
+	}
+
 	@Override
 	public void addTour(Tour tour) {
 		// TODO Auto-generated method stub
