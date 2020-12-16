@@ -44,8 +44,17 @@ public class TourDaoImpl implements TourDao{
 	}
 	@Override
 	public Tour getTourById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "Select * from " + TABLE_NAME + " Where id = ?";
+		try {
+			return jdbcTemplate.queryForObject(query, new Integer[]{id}, new RowMapper<Tour>() {
+				@Override
+				public Tour mapRow(ResultSet resultSet, int i){
+					return mapTour(resultSet);
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			return null;
+		}
 	}
 	@Override
 	public void deleteTour(int id) {

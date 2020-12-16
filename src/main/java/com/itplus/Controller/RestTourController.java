@@ -32,9 +32,15 @@ public class RestTourController {
 		return objectMapper.writeValueAsString(list);
 	}
 
-	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/category/{id}/", method = RequestMethod.GET)
 	public String listTourByCategory(@PathVariable int id) throws JsonProcessingException {
 		List<TourDTO> list = tourService.getTourByCategory(id);
+		return objectMapper.writeValueAsString(list);
+	}
+
+	@RequestMapping(value = "/{id}/", method = RequestMethod.GET)
+	public String listTourById(@PathVariable int id) throws JsonProcessingException {
+		TourDTO list = tourService.getTourById(id);
 		return objectMapper.writeValueAsString(list);
 	}
 }

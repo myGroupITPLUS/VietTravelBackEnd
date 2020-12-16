@@ -7,4 +7,5 @@ import com.itplus.Model.TourDTO;
 public interface TourService {
 	List<TourDTO> getAllTour();
 	List<TourDTO> getTourByCategory(int id);
+	TourDTO getTourById(int id);
 }
