@@ -25,21 +25,19 @@ public class TourServiceImpl implements TourService{
 		List<TourDTO> listtourDTO = new ArrayList<TourDTO>();
 		List<Tour> listTour = tourDao.getAllTour();
 		for (Tour tour : listTour) {
-			TourDTO tourDTO = new TourDTO();
-			tourDTO.setId(tour.getId());
-			tourDTO.setCategoryid(tour.getCategoryid());
-			tourDTO.setPromotionid(tour.getPromotionid());
-			tourDTO.setName(tour.getName());
-			tourDTO.setDiemdi(tour.getDiemdi());
-			tourDTO.setDiemden(tour.getDiemden());
-			tourDTO.setTimedi(tour.getTimedi());
-			tourDTO.setTimeve(tour.getTimeve());
-			tourDTO.setDescriptions(tour.getDescriptions());
-			tourDTO.setImages(tour.getImages());
-			tourDTO.setPrice(tour.getPrice());
-			listtourDTO.add(tourDTO);
+			listtourDTO.add(tour.toTourDTO());
 		}
-		
+		return listtourDTO;
+	}
+
+	@Override
+	public List<TourDTO> getTourByCategory(int id) {
+		List<TourDTO> listtourDTO = new ArrayList<TourDTO>();
+		List<Tour> listTour = tourDao.getTourByCategory(id);
+		for (Tour tour : listTour) {
+			listtourDTO.add(tour.toTourDTO());
+		}
+
 		return listtourDTO;
 	}
 

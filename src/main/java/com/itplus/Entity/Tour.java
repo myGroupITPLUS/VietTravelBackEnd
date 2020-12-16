@@ -1,5 +1,7 @@
 package com.itplus.Entity;
 
+import com.itplus.Model.TourDTO;
+
 public class Tour {
     private int id;
     private int categoryid;
@@ -31,6 +33,22 @@ public class Tour {
         this.descriptions = descriptions;
         this.images = images;
         this.price = price;
+    }
+
+    public TourDTO toTourDTO() {
+        TourDTO dto = new TourDTO();
+        dto.setId(this.getId());
+        dto.setCategoryid(this.getCategoryid());
+        dto.setPromotionid(this.getPromotionid());
+        dto.setName(this.getName());
+        dto.setDiemdi(this.getDiemdi());
+        dto.setDiemden(this.getDiemden());
+        dto.setTimedi(this.getTimedi());
+        dto.setTimeve(this.getTimeve());
+        dto.setDescriptions(this.getDescriptions());
+        dto.setImages(this.getImages());
+        dto.setPrice(this.getPrice());
+        return dto;
     }
 
     public int getId() {

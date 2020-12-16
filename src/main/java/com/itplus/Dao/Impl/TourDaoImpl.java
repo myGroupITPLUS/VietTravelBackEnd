@@ -2,9 +2,12 @@ package com.itplus.Dao.Impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.itplus.Entity.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -23,21 +26,8 @@ public class TourDaoImpl implements TourDao{
 		List<Tour> listTour = jdbcTemplate.query(sql, new Object[] {}, new RowMapper<Tour>(){
 
 			@Override
-			public Tour mapRow(ResultSet rs, int rowNum) throws SQLException {
-				// TODO Auto-generated method stub
-				Tour tour = new Tour();
-				tour.setId(rs.getInt("id"));
-				tour.setCategoryid(rs.getInt("categoryid"));
-				tour.setPromotionid(rs.getInt("promotionid"));
-				tour.setName(rs.getString("name"));
-				tour.setDiemdi(rs.getString("diemdi"));
-				tour.setDiemden(rs.getString("diemden"));
-				tour.setTimedi(rs.getString("timedi"));
-				tour.setTimeve(rs.getString("timeve"));
-				tour.setDescriptions(rs.getString("descriptions"));
-				tour.setImages(rs.getString("images"));
-				tour.setPrice(rs.getFloat("price"));
-				return tour;
+			public Tour mapRow(ResultSet rs, int rowNum){
+				return mapTour(rs);
 			}
 			});
 		return listTour;
@@ -61,6 +51,41 @@ public class TourDaoImpl implements TourDao{
 	public void deleteTour(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	private Tour mapTour(ResultSet resultSet) {
+		Tour tour = new Tour();
+		try {
+			tour.setId(resultSet.getInt("id"));
+			tour.setCategoryid(resultSet.getInt("categoryid"));
+			tour.setPromotionid(resultSet.getInt("promotionid"));
+			tour.setName(resultSet.getString("name"));
+			tour.setDiemdi(resultSet.getString("diemdi"));
+			tour.setDiemden(resultSet.getString("diemden"));
+			tour.setTimedi(resultSet.getString("timedi"));
+			tour.setTimeve(resultSet.getString("timeve"));
+			tour.setDescriptions(resultSet.getString("descriptions"));
+			tour.setImages(resultSet.getString("images"));
+			tour.setPrice(resultSet.getFloat("price"));
+			return tour;
+		} catch (SQLException throwable) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Tour> getTourByCategory(int id) {
+		String query = "Select * from " + TABLE_NAME + " Where categoryid = ?";
+		try {
+			return jdbcTemplate.query(query, new Integer[]{id}, new RowMapper<Tour>() {
+				@Override
+				public Tour mapRow(ResultSet resultSet, int i){
+					return mapTour(resultSet);
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			return new ArrayList<Tour>();
+		}
 	}
 
 }
