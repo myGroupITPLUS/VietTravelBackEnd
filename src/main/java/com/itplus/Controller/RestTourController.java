@@ -1,4 +1,4 @@
-package com.itplus.Controller;
+package com.itplus.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.itplus.Model.TourDTO;
-import com.itplus.Service.TourService;
+import com.itplus.model.TourDTO;
+import com.itplus.service.TourService;
 
 @RestController
 @RequestMapping(value = "/tour",produces = "application/json")

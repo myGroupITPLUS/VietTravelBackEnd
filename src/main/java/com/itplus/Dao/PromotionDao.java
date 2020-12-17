@@ -1,8 +1,8 @@
-package com.itplus.Dao;
+package com.itplus.dao;
 
 import java.util.List;
 
-import com.itplus.Entity.Promotion;
+import com.itplus.entity.Promotion;
 
 public interface PromotionDao {
 	List<Promotion> getAllPromotion();

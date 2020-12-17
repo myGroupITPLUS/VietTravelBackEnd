@@ -1,4 +1,4 @@
-package com.itplus.Dao.Impl;
+package com.itplus.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.itplus.Dao.PromotionDao;
-import com.itplus.Entity.Promotion;
+import com.itplus.dao.PromotionDao;
+import com.itplus.entity.Promotion;
 
 @Repository
 public class PromotionDaoImpl implements PromotionDao{
@@ -37,22 +37,34 @@ public class PromotionDaoImpl implements PromotionDao{
 	}
 	@Override
 	public void addPromotion(Promotion promotion) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into "+TABLE_NAME+"(sale,descriptions,images) values(?,?,?)";
+		jdbcTemplate.update(sql,promotion.getSale(),promotion.getDescription(),promotion.getImages());				
 	}
 	@Override
 	public void updatePromotion(Promotion promotion) {
-		// TODO Auto-generated method stub
+		String sql = "update "+TABLE_NAME+" set sale = ?, descriptions = ?, images=? where id = ?";
+		jdbcTemplate.update(sql, promotion.getSale(),promotion.getDescription(),promotion.getImages(),promotion.getImages(),promotion.getId());
 		
 	}
 	@Override
 	public Promotion getPromotionById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from "+TABLE_NAME+" where id = ?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new RowMapper<Promotion>(){
+			@Override
+			public Promotion mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Promotion promotion = new Promotion();
+				promotion.setId(rs.getInt("id"));
+				promotion.setSale(rs.getString("sale"));
+				promotion.setDescription(rs.getString("descriptions"));
+				promotion.setImages(rs.getString("images"));
+				return promotion;
+			}
+		});
 	}
 	@Override
 	public void deletePromotion(int id) {
-		// TODO Auto-generated method stub
+		String sql = "delete from "+TABLE_NAME+" where id = ?";		
+		jdbcTemplate.update(sql, id);
 		
 	}
 	

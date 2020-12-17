@@ -1,4 +1,4 @@
-package com.itplus.Dao.Impl;
+package com.itplus.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.itplus.Dao.TourDao;
-import com.itplus.Entity.Tour;
+import com.itplus.dao.TourDao;
+import com.itplus.entity.Tour;
 
 @Repository
 public class TourDaoImpl implements TourDao{
@@ -44,22 +44,42 @@ public class TourDaoImpl implements TourDao{
 	}
 	@Override
 	public void addTour(Tour tour) {
-		// TODO Auto-generated method stub
+		String sql = "insert into "+TABLE_NAME+"(categoryid,tourid,name,diemdi,diemden,timedi,timeve,descriptions,images,price) values(?,?,?,?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sql,tour.getCategoryid(),tour.getPromotionid(),tour.getName(),tour.getDiemdi(),tour.getDiemden(),tour.getTimedi(),tour.getTimeve(),tour.getDescriptions(),tour.getImages(),tour.getPrice());	
 		
 	}
 	@Override
 	public void updateTour(Tour tour) {
-		// TODO Auto-generated method stub
+		String sql = "update "+TABLE_NAME+" set categoryid = ?, tourid = ?, name=?, diemdi=?, diemden=?, timedi=?, timeve=?, descriptions=?, images=?, price=? where id = ?";
+		jdbcTemplate.update(sql, tour.getCategoryid(),tour.getPromotionid(),tour.getName(),tour.getDiemdi(),tour.getDiemden(),tour.getTimedi(),tour.getTimeve(),tour.getDescriptions(),tour.getImages(),tour.getPrice(),tour.getId());
 		
 	}
 	@Override
 	public Tour getTourById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from "+TABLE_NAME+" where id = ?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new RowMapper<Tour>(){
+			@Override
+			public Tour mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Tour tour = new Tour();
+				tour.setId(rs.getInt("id"));
+				tour.setCategoryid(rs.getInt("categoryid"));
+				tour.setPromotionid(rs.getInt("promotionid"));
+				tour.setName(rs.getString("name"));
+				tour.setDiemdi(rs.getString("diemdi"));
+				tour.setDiemden(rs.getString("diemden"));
+				tour.setTimedi(rs.getString("timedi"));
+				tour.setTimeve(rs.getString("timeve"));
+				tour.setDescriptions(rs.getString("descriptions"));
+				tour.setImages(rs.getString("images"));
+				tour.setPrice(rs.getFloat("price"));
+				return tour;
+			}
+		});
 	}
 	@Override
 	public void deleteTour(int id) {
-		// TODO Auto-generated method stub
+		String sql = "delete from "+TABLE_NAME+" where id = ?";		
+		jdbcTemplate.update(sql, id);
 		
 	}
 

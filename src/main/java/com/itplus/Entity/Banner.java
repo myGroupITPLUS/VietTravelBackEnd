@@ -1,4 +1,4 @@
-package com.itplus.Entity;
+package com.itplus.entity;
 
 public class Banner {
 	private int id;
@@ -12,6 +12,7 @@ public class Banner {
 	}
 
 	public Banner(int id, String name, String descriptions, String url, String images) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.descriptions = descriptions;
@@ -58,5 +59,8 @@ public class Banner {
 	public void setImages(String images) {
 		this.images = images;
 	}
-
+	
+	
+	
+	
 }

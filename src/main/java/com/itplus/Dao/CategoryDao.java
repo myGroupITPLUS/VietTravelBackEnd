@@ -1,13 +1,13 @@
-package com.itplus.Dao;
+package com.itplus.dao;
 
 import java.util.List;
 
-import com.itplus.Entity.Category;
+import com.itplus.entity.Category;
 
 public interface CategoryDao {
 	List<Category> getAllCategory();
-	Category getCategoryById(int id);
 	void addCategory(Category category);
 	void updateCategory(Category category);
+	Category getCategoryById(int id);
 	void deleteCategory(int id);
 }

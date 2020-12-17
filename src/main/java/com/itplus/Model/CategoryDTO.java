@@ -1,17 +1,17 @@
-package com.itplus.Model;
+package com.itplus.model;
 
 public class CategoryDTO {
 	private int id;
-	private String categoryName;
+	private String categoryname;
 	private String descriptions;
 	private String images;
 	public CategoryDTO() {
 		
 	}
-	public CategoryDTO(int id, String categoryName, String descriptions, String images) {
+	public CategoryDTO(int id, String categoryname, String descriptions, String images) {
 		super();
 		this.id = id;
-		this.categoryName = categoryName;
+		this.categoryname = categoryname;
 		this.descriptions = descriptions;
 		this.images = images;
 	}
@@ -21,11 +21,11 @@ public class CategoryDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCategoryName() {
-		return categoryName;
+	public String getCategoryname() {
+		return categoryname;
 	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setCategoryname(String categoryname) {
+		this.categoryname = categoryname;
 	}
 	public String getDescriptions() {
 		return descriptions;

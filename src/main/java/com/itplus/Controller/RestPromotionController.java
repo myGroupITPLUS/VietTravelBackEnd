@@ -1,4 +1,4 @@
-package com.itplus.Controller;
+package com.itplus.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.itplus.Model.PromotionDTO;
-import com.itplus.Service.PromotionService;
+import com.itplus.model.PromotionDTO;
+import com.itplus.service.PromotionService;
 
 @RestController
 @RequestMapping(value = "/promotion",produces = "application/json")

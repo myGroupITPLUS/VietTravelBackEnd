@@ -1,8 +1,8 @@
-package com.itplus.Dao;
+package com.itplus.dao;
 
 import java.util.List;
 
-import com.itplus.Entity.Banner;
+import com.itplus.entity.Banner;
 
 public interface BannerDao {
 	List<Banner> getAllBanner();

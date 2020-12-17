@@ -1,4 +1,4 @@
-package com.itplus.Model;
+package com.itplus.model;
 
 public class TourDTO {
 	private int id;
@@ -119,6 +119,13 @@ public class TourDTO {
 
 	public void setPrice(float price) {
 		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "TourDTO [id=" + id + ", categoryid=" + categoryid + ", promotionid=" + promotionid + ", name=" + name
+				+ ", diemdi=" + diemdi + ", diemden=" + diemden + ", timedi=" + timedi + ", timeve=" + timeve
+				+ ", descriptions=" + descriptions + ", images=" + images + ", price=" + price + "]";
 	}
 	
 	

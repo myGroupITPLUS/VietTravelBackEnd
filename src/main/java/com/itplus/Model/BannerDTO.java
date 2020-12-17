@@ -1,4 +1,4 @@
-package com.itplus.Model;
+package com.itplus.model;
 
 public class BannerDTO {
 	private int id;

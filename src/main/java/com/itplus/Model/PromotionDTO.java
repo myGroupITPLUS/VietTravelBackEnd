@@ -1,4 +1,4 @@
-package com.itplus.Model;
+package com.itplus.model;
 
 public class PromotionDTO {
 	private int id;
@@ -38,6 +38,11 @@ public class PromotionDTO {
 	}
 	public void setImages(String images) {
 		this.images = images;
+	}
+	@Override
+	public String toString() {
+		return "PromotionDTO [id=" + id + ", sale=" + sale + ", descriptions=" + descriptions + ", images=" + images
+				+ "]";
 	}
 	
 	

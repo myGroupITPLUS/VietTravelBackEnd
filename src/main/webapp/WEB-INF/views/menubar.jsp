@@ -205,6 +205,26 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">Banner</li>
+          <li class="nav-item">
+            <a href="/api/admin/banner/" class="nav-link">
+              <!-- <i class="nav-icon far fa-calendar-alt"></i> -->
+              <p>
+                Quản lí banner
+                <!--<span class="badge badge-info right">2</span>-->
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">Người dùng</li>
+          <li class="nav-item">
+            <a href="/api/admin/user/" class="nav-link">
+              <!-- <i class="nav-icon far fa-calendar-alt"></i> -->
+              <p>
+                Quản lí người dùng
+                <!--<span class="badge badge-info right">2</span>-->
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Khác</li>
           <li class="nav-item">
             <a href="#" class="nav-link">

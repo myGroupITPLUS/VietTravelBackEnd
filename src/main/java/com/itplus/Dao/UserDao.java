@@ -1,9 +1,8 @@
-package com.itplus.Dao;
+package com.itplus.dao;
 
-import java.util.HashMap;
 import java.util.List;
 
-import com.itplus.Entity.User;
+import com.itplus.entity.User;
 
 public interface UserDao {
 	List<User> getAllUser();
@@ -11,6 +10,4 @@ public interface UserDao {
 	void updateUser(User user);
 	User getUserById(int id);
 	void deleteUser(int id);
-	HashMap<String, Object> register(User user);
-	User getUserByEmail(String email);
 }
