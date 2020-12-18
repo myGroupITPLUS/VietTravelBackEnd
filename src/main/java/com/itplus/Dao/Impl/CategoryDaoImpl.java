@@ -1,4 +1,4 @@
-package com.itplus.dao.impl;
+package com.itplus.Dao.Impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.itplus.dao.CategoryDao;
-import com.itplus.entity.Category;
+import com.itplus.Dao.CategoryDao;
+import com.itplus.Entity.Category;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao{

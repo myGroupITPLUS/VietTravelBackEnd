@@ -1,8 +1,8 @@
-package com.itplus.service;
+package com.itplus.Service;
 
 import java.util.List;
 
-import com.itplus.model.CategoryDTO;
+import com.itplus.Model.CategoryDTO;
 
 public interface CategoryService {
 	List<CategoryDTO> getAllCategory();

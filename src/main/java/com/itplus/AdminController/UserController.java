@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.itplus.model.UserDTO;
-import com.itplus.service.UserService;
+import com.itplus.Model.UserDTO;
+import com.itplus.Service.UserService;
 
 @Controller
 @RequestMapping(value = "/admin/user")

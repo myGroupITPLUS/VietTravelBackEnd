@@ -1,4 +1,4 @@
-package com.itplus.model;
+package com.itplus.Model;
 
 public class CategoryDTO {
 	private int id;

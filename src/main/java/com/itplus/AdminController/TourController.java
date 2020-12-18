@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.itplus.model.TourDTO;
-import com.itplus.model.CategoryDTO;
-import com.itplus.model.PromotionDTO;
-import com.itplus.service.CategoryService;
-import com.itplus.service.PromotionService;
-import com.itplus.service.TourService;
+import com.itplus.Model.TourDTO;
+import com.itplus.Model.CategoryDTO;
+import com.itplus.Model.PromotionDTO;
+import com.itplus.Service.CategoryService;
+import com.itplus.Service.PromotionService;
+import com.itplus.Service.TourService;
 
 @Controller
 @RequestMapping(value = "/admin/tour")

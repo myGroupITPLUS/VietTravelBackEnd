@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.itplus.model.PromotionDTO;
-import com.itplus.service.PromotionService;
+import com.itplus.Model.PromotionDTO;
+import com.itplus.Service.PromotionService;
 
 @Controller
 @RequestMapping(value = "/admin/promotion")

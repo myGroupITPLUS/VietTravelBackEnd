@@ -1,16 +1,19 @@
-package com.itplus.dao.impl;
+package com.itplus.Dao.Impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
+import com.itplus.Util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.itplus.dao.UserDao;
-import com.itplus.entity.User;
+import com.itplus.Dao.UserDao;
+import com.itplus.Entity.User;
 
 
 @Repository
@@ -32,7 +35,7 @@ public class UserDaoImpl implements UserDao{
 				user.setId(rs.getInt("id"));
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("password"));
-				user.setPhone(rs.getInt("phone"));
+				user.setPhone(rs.getString("phone"));
 				user.setAddress(rs.getString("address"));
 				user.setEmail(rs.getString("email"));
 				return user;
@@ -63,7 +66,7 @@ public class UserDaoImpl implements UserDao{
 				user.setId(rs.getInt("id"));
 				user.setUsername(rs.getString("username"));
 				user.setPassword(rs.getString("password"));
-				user.setPhone(rs.getInt("phone"));
+				user.setPhone(rs.getString("phone"));
 				user.setAddress(rs.getString("address"));
 				user.setEmail(rs.getString("email"));
 				return user;
@@ -74,6 +77,66 @@ public class UserDaoImpl implements UserDao{
 	public void deleteUser(int id) {
 		String sql = "delete from "+TABLE_NAME+" where id = ?";		
 		jdbcTemplate.update(sql, id);		
+	}
+
+	@Override
+	public HashMap<String, Object> register(User user) {
+		HashMap<String, Object> result = new HashMap<>();
+		String sql = "Select * from " + TABLE_NAME + " where email = ?";
+		User check;
+		try {
+			check = jdbcTemplate.queryForObject(sql, new String[]{user.getEmail()}, new RowMapper<User>() {
+				@Override
+				public User mapRow(ResultSet resultSet, int i) {
+					return new User();
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			check =null;
+		}
+
+		if (check != null) {
+			result.put("success", false);
+			result.put("message", "Email is exists");
+		} else {
+			sql = "INSERT INTO " + TABLE_NAME + " (username, email, password) VALUE (?, ?, ?)";
+			int updateResult = jdbcTemplate.update(sql, user.getUsername(), user.getEmail(), MD5Util.toMD5(user.getPassword()));
+			if (updateResult > 0){
+				User newUser = this.getUserByEmail(user.getEmail());
+				result.put("success", true);
+				result.put("user", newUser);
+			} else{
+				result.put("success", false);
+				result.put("message", "Please contact support team to get help");
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public User getUserByEmail(String email) {
+		String sql = "Select * from " + TABLE_NAME + " where email = ?";
+		try {
+			return jdbcTemplate.queryForObject(sql, new String[]{email}, new RowMapper<User>() {
+				@Override
+				public User mapRow(ResultSet resultSet, int i) {
+					User user = new User();
+					try {
+						user.setId(resultSet.getInt("id"));
+						user.setAddress(resultSet.getString("address"));
+						user.setUsername(resultSet.getString("username"));
+						user.setEmail(resultSet.getString("email"));
+						user.setPassword(resultSet.getString("password"));
+						user.setPhone(resultSet.getString("phone"));
+						return user;
+					} catch (SQLException throwable) {
+						return null;
+					}
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			return null;
+		}
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.itplus.service.impl;
+package com.itplus.Service.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itplus.dao.PromotionDao;
-import com.itplus.entity.Promotion;
-import com.itplus.model.PromotionDTO;
-import com.itplus.service.PromotionService;
+import com.itplus.Dao.PromotionDao;
+import com.itplus.Entity.Promotion;
+import com.itplus.Model.PromotionDTO;
+import com.itplus.Service.PromotionService;
 
 
 @Service

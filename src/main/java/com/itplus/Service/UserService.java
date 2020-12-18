@@ -1,8 +1,10 @@
-package com.itplus.service;
+package com.itplus.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
-import com.itplus.model.UserDTO;
+import com.itplus.Entity.User;
+import com.itplus.Model.UserDTO;
 
 public interface UserService {
 	List<UserDTO> getAllUser();
@@ -10,4 +12,6 @@ public interface UserService {
 	void updateUser(UserDTO userDTO);
 	UserDTO getUserById(int id);
 	void deleteUser(int id);
+	UserDTO getUserByEmail(String email);
+	HashMap<String, Object> register(User user);
 }

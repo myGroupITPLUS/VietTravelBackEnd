@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.itplus.model.CategoryDTO;
-import com.itplus.service.CategoryService;
+import com.itplus.Model.CategoryDTO;
+import com.itplus.Service.CategoryService;
 
 @Controller
 @RequestMapping(value = "/admin/category")

@@ -1,4 +1,4 @@
-package com.itplus.service.impl;
+package com.itplus.Service.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.itplus.dao.CategoryDao;
-import com.itplus.entity.Category;
-import com.itplus.model.CategoryDTO;
-import com.itplus.service.CategoryService;
+import com.itplus.Dao.CategoryDao;
+import com.itplus.Entity.Category;
+import com.itplus.Model.CategoryDTO;
+import com.itplus.Service.CategoryService;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{

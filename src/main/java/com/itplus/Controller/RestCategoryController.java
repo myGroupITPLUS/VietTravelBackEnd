@@ -1,4 +1,4 @@
-package com.itplus.controller;
+package com.itplus.Controller;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.itplus.service.CategoryService;
+import com.itplus.Service.CategoryService;
 
-import com.itplus.model.CategoryDTO;
+import com.itplus.Model.CategoryDTO;
 
 @RestController
 @RequestMapping(value = "/category",produces = "application/json")

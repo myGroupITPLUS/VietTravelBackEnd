@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.itplus.model.BannerDTO;
-import com.itplus.service.BannerService;
+import com.itplus.Model.BannerDTO;
+import com.itplus.Service.BannerService;
 
 @Controller
 @RequestMapping(value = "/admin/banner")

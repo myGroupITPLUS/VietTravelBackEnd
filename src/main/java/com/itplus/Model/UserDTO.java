@@ -1,16 +1,16 @@
-package com.itplus.model;
+package com.itplus.Model;
 
 public class UserDTO {
 	private int id;
 	private String username;
 	private String password;
-	private int phone;
+	private String phone;
 	private String address;
 	private String email;
 	public UserDTO() {
 		
 	}
-	public UserDTO(int id, String username, String password, int phone, String address, String email) {
+	public UserDTO(int id, String username, String password, String phone, String address, String email) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -37,10 +37,10 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getAddress() {

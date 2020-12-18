@@ -1,8 +1,8 @@
-package com.itplus.dao;
+package com.itplus.Dao;
 
 import java.util.List;
 
-import com.itplus.entity.Category;
+import com.itplus.Entity.Category;
 
 public interface CategoryDao {
 	List<Category> getAllCategory();

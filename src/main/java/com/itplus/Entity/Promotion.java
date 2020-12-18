@@ -1,4 +1,4 @@
-package com.itplus.entity;
+package com.itplus.Entity;
 
 public class Promotion {
 	private int id;

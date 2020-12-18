@@ -1,8 +1,8 @@
-package com.itplus.service;
+package com.itplus.Service;
 
 import java.util.List;
 
-import com.itplus.model.BannerDTO;
+import com.itplus.Model.BannerDTO;
 
 
 public interface BannerService {

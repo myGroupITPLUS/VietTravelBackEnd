@@ -1,8 +1,8 @@
-package com.itplus.service;
+package com.itplus.Service;
 
 import java.util.List;
 
-import com.itplus.model.PromotionDTO;
+import com.itplus.Model.PromotionDTO;
 
 public interface PromotionService {
 	List<PromotionDTO> getAllPromotion();

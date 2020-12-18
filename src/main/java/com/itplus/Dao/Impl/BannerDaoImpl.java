@@ -1,4 +1,4 @@
-package com.itplus.dao.impl;
+package com.itplus.Dao.Impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.itplus.dao.BannerDao;
-import com.itplus.entity.Banner;
+import com.itplus.Dao.BannerDao;
+import com.itplus.Entity.Banner;
 
 @Repository
 public class BannerDaoImpl implements BannerDao{

@@ -1,123 +1,142 @@
-package com.itplus.entity;
+package com.itplus.Entity;
+
+import com.itplus.Model.TourDTO;
 
 public class Tour {
-	private int id;
-	private int categoryid;
-	private int promotionid;
-	private String name;
-	private String diemdi;
-	private String diemden;
-	private String timedi;
-	private String timeve;
-	private String descriptions;
-	private String images;
-	private float price;
-	
-	public Tour() {
-		
-	}
+    private int id;
+    private int categoryid;
+    private int promotionid;
+    private String name;
+    private String diemdi;
+    private String diemden;
+    private String timedi;
+    private String timeve;
+    private String descriptions;
+    private String images;
+    private float price;
 
-	public Tour(int id, int categoryid, int promotionid, String name, String diemdi, String diemden, String timedi,
-			String timeve, String descriptions, String images, float price) {
-		super();
-		this.id = id;
-		this.categoryid = categoryid;
-		this.promotionid = promotionid;
-		this.name = name;
-		this.diemdi = diemdi;
-		this.diemden = diemden;
-		this.timedi = timedi;
-		this.timeve = timeve;
-		this.descriptions = descriptions;
-		this.images = images;
-		this.price = price;
-	}
+    public Tour() {
 
-	public int getId() {
-		return id;
-	}
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Tour(int id, int categoryid, int promotionid, String name, String diemdi, String diemden, String timedi,
+                String timeve, String descriptions, String images, float price) {
+        super();
+        this.id = id;
+        this.categoryid = categoryid;
+        this.promotionid = promotionid;
+        this.name = name;
+        this.diemdi = diemdi;
+        this.diemden = diemden;
+        this.timedi = timedi;
+        this.timeve = timeve;
+        this.descriptions = descriptions;
+        this.images = images;
+        this.price = price;
+    }
 
-	public int getCategoryid() {
-		return categoryid;
-	}
+    public TourDTO toTourDTO() {
+        TourDTO dto = new TourDTO();
+        dto.setId(this.getId());
+        dto.setCategoryid(this.getCategoryid());
+        dto.setPromotionid(this.getPromotionid());
+        dto.setName(this.getName());
+        dto.setDiemdi(this.getDiemdi());
+        dto.setDiemden(this.getDiemden());
+        dto.setTimedi(this.getTimedi());
+        dto.setTimeve(this.getTimeve());
+        dto.setDescriptions(this.getDescriptions());
+        dto.setImages(this.getImages());
+        dto.setPrice(this.getPrice());
+        return dto;
+    }
 
-	public void setCategoryid(int categoryid) {
-		this.categoryid = categoryid;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getPromotionid() {
-		return promotionid;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setPromotionid(int promotionid) {
-		this.promotionid = promotionid;
-	}
+    public int getCategoryid() {
+        return categoryid;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setCategoryid(int categoryid) {
+        this.categoryid = categoryid;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getPromotionid() {
+        return promotionid;
+    }
 
-	public String getDiemdi() {
-		return diemdi;
-	}
+    public void setPromotionid(int promotionid) {
+        this.promotionid = promotionid;
+    }
 
-	public void setDiemdi(String diemdi) {
-		this.diemdi = diemdi;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getDiemden() {
-		return diemden;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setDiemden(String diemden) {
-		this.diemden = diemden;
-	}
+    public String getDiemdi() {
+        return diemdi;
+    }
 
-	public String getTimedi() {
-		return timedi;
-	}
+    public void setDiemdi(String diemdi) {
+        this.diemdi = diemdi;
+    }
 
-	public void setTimedi(String timedi) {
-		this.timedi = timedi;
-	}
+    public String getDiemden() {
+        return diemden;
+    }
 
-	public String getTimeve() {
-		return timeve;
-	}
+    public void setDiemden(String diemden) {
+        this.diemden = diemden;
+    }
 
-	public void setTimeve(String timeve) {
-		this.timeve = timeve;
-	}
+    public String getTimedi() {
+        return timedi;
+    }
 
-	public String getDescriptions() {
-		return descriptions;
-	}
+    public void setTimedi(String timedi) {
+        this.timedi = timedi;
+    }
 
-	public void setDescriptions(String descriptions) {
-		this.descriptions = descriptions;
-	}
+    public String getTimeve() {
+        return timeve;
+    }
 
-	public String getImages() {
-		return images;
-	}
+    public void setTimeve(String timeve) {
+        this.timeve = timeve;
+    }
 
-	public void setImages(String images) {
-		this.images = images;
-	}
+    public String getDescriptions() {
+        return descriptions;
+    }
 
-	public float getPrice() {
-		return price;
-	}
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
+    }
 
-	public void setPrice(float price) {
-		this.price = price;
-	}	
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
 }

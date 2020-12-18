@@ -1,4 +1,4 @@
-package com.itplus.controller;
+package com.itplus.Controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.itplus.model.BannerDTO;
-import com.itplus.service.BannerService;
+import com.itplus.Model.BannerDTO;
+import com.itplus.Service.BannerService;
 
 @RestController
 @RequestMapping(value = "/banner",produces = "application/json")
