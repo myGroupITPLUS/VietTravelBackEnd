@@ -1,8 +1,11 @@
 package com.itplus.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class UserDTO {
 	private int id;
 	private String username;
+	@JsonIgnore
 	private String password;
 	private String phone;
 	private String address;
