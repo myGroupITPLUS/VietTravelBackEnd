@@ -11,5 +11,6 @@ public interface TourService {
 	void deleteTour(int id);
 	List<TourDTO> search(String q);
 	List<TourDTO> getTourByCategory(int id);
+	List<TourDTO> listTourHasPromotion();
 	TourDTO getTourById(int id);
 }

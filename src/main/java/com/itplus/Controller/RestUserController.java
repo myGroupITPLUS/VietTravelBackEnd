@@ -44,6 +44,7 @@ public class RestUserController {
 				map.put("success", false);
 			}else {
 				map.put("user", userDTO);
+				map.put("message", "Login success");
 				map.put("success", true);
 			}
 		}else {

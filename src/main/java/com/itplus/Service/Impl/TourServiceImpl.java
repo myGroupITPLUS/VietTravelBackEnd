@@ -91,6 +91,16 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
+    public List<TourDTO> listTourHasPromotion() {
+        List<TourDTO> dtoList = new ArrayList<>();
+        List<Tour> listTour = tourDao.listTourHasPromotion();
+        for (Tour tour : listTour) {
+            dtoList.add(tour.toTourDTO());
+        }
+        return dtoList;
+    }
+
+    @Override
     public TourDTO getTourById(int id) {
         Tour tour = tourDao.getTourById(id);
         if (tour != null) {
