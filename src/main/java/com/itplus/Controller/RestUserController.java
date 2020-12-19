@@ -32,7 +32,7 @@ public class RestUserController {
 		return gson.toJson(user);
 	}
 
-	@GetMapping(value = "/login/")
+	@PostMapping(value = "/login/")
 	@ResponseStatus(HttpStatus.OK)
 	public String login(@RequestBody User user) throws JsonProcessingException {
 		UserDTO userDTO = userService.getUserByEmail(user.getEmail());
