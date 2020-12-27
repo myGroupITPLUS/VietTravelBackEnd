@@ -1,5 +1,7 @@
 package com.itplus.Entity;
 
+import com.itplus.Model.CategoryDTO;
+
 public class Category {
 	private int id;
 	private String categoryname;
@@ -20,6 +22,15 @@ public class Category {
 		this.categoryname = categoryname;
 		this.descriptions = descriptions;
 		this.images = images;
+	}
+
+	public CategoryDTO toCategoryDTO(){
+		CategoryDTO categoryDTO = new CategoryDTO();
+		categoryDTO.setId(this.getId());
+		categoryDTO.setCategoryname(this.getCategoryname());
+		categoryDTO.setDescriptions(this.getDescriptions());
+		categoryDTO.setImages(this.getImages());
+		return categoryDTO;
 	}
 
 

@@ -52,17 +52,15 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public CategoryDTO getCategoryById(int id) {
 		Category category = categoryDao.getCategoryById(id);
-		CategoryDTO categoryDTO = new CategoryDTO();
-		categoryDTO.setId(category.getId());
-		categoryDTO.setCategoryname(category.getCategoryname());
-		categoryDTO.setDescriptions(category.getDescriptions());
-		categoryDTO.setImages(category.getImages());
-		return categoryDTO;
+		if (category != null){
+			return category.toCategoryDTO();
+		}else {
+			return null;
+		}
 	}
 	@Override
 	public void deleteCategory(int id) {
 		categoryDao.deleteCategory(id);
-		
 	}
 
 }

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -52,17 +53,26 @@ public class CategoryDaoImpl implements CategoryDao{
 	@Override
 	public Category getCategoryById(int id) {
 		String sql = "select * from "+TABLE_NAME+" where id = ?";
-		return jdbcTemplate.queryForObject(sql, new Object[] {id}, new RowMapper<Category>(){
-			@Override
-			public Category mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Category category = new Category();
-				category.setId(rs.getInt("id"));
-				category.setCategoryname(rs.getString("categoryname"));
-				category.setDescriptions(rs.getString("descriptions"));
-				category.setImages(rs.getString("images"));
-				return category;
-			}
-		});
+
+		try {
+			return jdbcTemplate.queryForObject(sql, new Object[]{id}, new RowMapper<Category>() {
+				@Override
+				public Category mapRow(ResultSet rs, int rowNum) {
+					try {
+						Category category = new Category();
+						category.setId(rs.getInt("id"));
+						category.setCategoryname(rs.getString("categoryname"));
+						category.setDescriptions(rs.getString("descriptions"));
+						category.setImages(rs.getString("images"));
+						return category;
+					} catch (SQLException e) {
+						return null;
+					}
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			return null;
+		}
 	}
 	@Override
 	public void deleteCategory(int id) {
