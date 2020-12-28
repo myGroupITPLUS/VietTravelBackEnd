@@ -126,6 +126,21 @@ public class TourDaoImpl implements TourDao{
 		}
 	}
 
+	@Override
+	public List<Tour> getTourByPromotion(int id) {
+		String query = "Select * from " + TABLE_NAME + " Where promotionid = ?";
+		try {
+			return jdbcTemplate.query(query, new Integer[]{id}, new RowMapper<Tour>() {
+				@Override
+				public Tour mapRow(ResultSet resultSet, int i){
+					return mapTour(resultSet);
+				}
+			});
+		} catch (EmptyResultDataAccessException exception){
+			return new ArrayList<Tour>();
+		}
+	}
+
 
 	@Override
 	public List<Tour> listTourHasPromotion() {

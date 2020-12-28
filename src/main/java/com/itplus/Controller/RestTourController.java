@@ -50,4 +50,10 @@ public class RestTourController {
 		List<TourDTO> list = tourService.listTourHasPromotion();
 		return objectMapper.writeValueAsString(list);
 	}
+
+	@GetMapping(value = "/promotion/{id}/")
+	public String listTourByPromotion(@PathVariable int id) throws JsonProcessingException {
+		List<TourDTO> list = tourService.getTourByPromotion(id);
+		return objectMapper.writeValueAsString(list);
+	}
 }

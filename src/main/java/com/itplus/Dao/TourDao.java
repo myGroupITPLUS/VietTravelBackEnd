@@ -12,5 +12,6 @@ public interface TourDao {
 	Tour getTourById(int id);
 	void deleteTour(int id);
 	List<Tour> getTourByCategory(int id);
+	List<Tour> getTourByPromotion(int id);
 	List<Tour> listTourHasPromotion();
 }
