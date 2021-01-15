@@ -76,7 +76,7 @@ public class UserDaoImpl implements UserDao {
                     return user;
                 }
             });
-        } catch (EmptyResultDataAccessException emptyResultDataAccessException){
+        } catch (EmptyResultDataAccessException emptyResultDataAccessException) {
             return null;
         }
 
@@ -153,21 +153,21 @@ public class UserDaoImpl implements UserDao {
         HashMap<String, Object> result = new HashMap<>();
         boolean success = false;
         String message;
-        try {
-            User user = getUserById(id);
+        User user = getUserById(id);
+        if (user != null) {
             if (MD5Util.toMD5(oldPassword).equals(user.getPassword())) {
                 String sql = "update " + TABLE_NAME + " set password = ? where id = ?";
-                int updateResult =jdbcTemplate.update(sql, MD5Util.toMD5(newPassword), user.getId());
-                if (updateResult > 0){
+                int updateResult = jdbcTemplate.update(sql, MD5Util.toMD5(newPassword), user.getId());
+                if (updateResult > 0) {
                     success = true;
                     message = "Change password complete";
-                }else{
+                } else {
                     message = "Change password fail";
                 }
             } else {
                 message = "Password not match";
             }
-        } catch (EmptyResultDataAccessException e) {
+        } else {
             message = "User not found ";
         }
         result.put("success", success);
@@ -183,11 +183,11 @@ public class UserDaoImpl implements UserDao {
         try {
             User user = getUserById(id);
             String sql = "update " + TABLE_NAME + " set password = ? where id = ?";
-            int updateResult =jdbcTemplate.update(sql, MD5Util.toMD5(newPassword), user.getId());
-            if (updateResult > 0){
+            int updateResult = jdbcTemplate.update(sql, MD5Util.toMD5(newPassword), user.getId());
+            if (updateResult > 0) {
                 success = true;
                 message = "Change password complete";
-            }else{
+            } else {
                 message = "Change password fail";
             }
         } catch (EmptyResultDataAccessException e) {
