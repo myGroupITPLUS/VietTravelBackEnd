@@ -14,4 +14,6 @@ public interface UserService {
 	void deleteUser(int id);
 	UserDTO getUserByEmail(String email);
 	HashMap<String, Object> register(User user);
+	HashMap<String, Object> changePassword(int id, String oldPassword, String newPassword);
+	HashMap<String, Object> updatePassword(int id, String newPassword);
 }

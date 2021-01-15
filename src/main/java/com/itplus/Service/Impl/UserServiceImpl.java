@@ -64,14 +64,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getUserById(int id) {
         User user = userDao.getUserById(id);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setUsername(user.getUsername());
-        userDTO.setPassword(user.getPassword());
-        userDTO.setPhone(user.getPhone());
-        userDTO.setAddress(user.getAddress());
-        userDTO.setEmail(user.getEmail());
-        return userDTO;
+        return user != null ? user.toUserDTO() : null;
     }
 
     @Override
@@ -99,6 +92,16 @@ public class UserServiceImpl implements UserService {
             result.replace("user", newUser.toUserDTO());
         }
         return result;
+    }
+
+    @Override
+    public HashMap<String, Object> changePassword(int id, String oldPassword, String newPassword) {
+        return userDao.changePassword(id, oldPassword, newPassword);
+    }
+
+    @Override
+    public HashMap<String, Object> updatePassword(int id, String newPassword) {
+        return userDao.updatePassword(id, newPassword);
     }
 
 }

@@ -19,4 +19,9 @@ public interface UserDao {
     HashMap<String, Object> register(User user);
 
     User getUserByEmail(String email);
+
+    HashMap<String, Object> changePassword(int id, String oldPassword, String newPassword);
+
+    HashMap<String, Object> updatePassword(int id, String newPassword);
+
 }
